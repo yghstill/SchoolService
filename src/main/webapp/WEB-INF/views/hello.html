@@ -1,0 +1,12 @@
+<!-- 该文件要放置在 resources/templates/下 -->
+<!DOCTYPE html>
+<!-- 添加 Thymeleaf 命名空间-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring4 MVC</title>
+</head>
+<body>
+    <p th:text="'Hi,My name is ' + ${username} +  ','+'爱沐 '+${idcard}+' hahhaha'" />
+</body>
+</html>
