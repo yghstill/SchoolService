@@ -1,10 +1,7 @@
 package com.practice.dao;
 
 import com.practice.bean.*;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,8 +21,8 @@ public interface UserDao {
     @Insert("insert into userinfo (userid, password,username,sex,xueyuan,zhuanye,type) values(#{userid}, #{password},#{username},#{sex},#{xueyuan},#{zhuanye},#{type})")
     int resign(@Param("userid") String userid, @Param("password") String password, @Param("username") String username, @Param("sex") String sex, @Param("xueyuan") String xueyuan, @Param("zhuanye") String zhuanye, @Param("type") String type);
 
-    @Insert("insert into schoolpicture (userid,imgpath,imgdesc,imgtime) values(#{userid}, #{imgpath},#{imgdesc},#{imgtime})")
-    int setIMG(@Param("userid") String userid, @Param("imgpath") String imgpath, @Param("imgdesc") String imgdesc, @Param("imgtime") String imgtime);
+    @Insert("insert into schoolpicture (userid,imgid,imgpath,imgdesc,imgtime) values(#{userid}, #{imgid},#{imgpath},#{imgdesc},#{imgtime})")
+    int setIMG(@Param("userid") String userid, @Param("imgid") String imgid, @Param("imgpath") String imgpath, @Param("imgdesc") String imgdesc, @Param("imgtime") String imgtime);
 
     @Select("select * from schoolpicture ")
     List<PictureBean> getimg();
@@ -57,6 +54,17 @@ public interface UserDao {
 
     @Select("select headimg from userinfo where userid=#{userid} limit 1")
     String getHeadimg(@Param("userid") String userid);
+
+    @Delete("delete from schoolpicture where imgid=#{imgid}")
+    int DeleteSchoolPic(@Param("imgid") String imgid);
+
+    /**
+     * 获取课程表
+     * @param userid
+     * @return
+     */
+    @Select("select * from weeklin where userid=#{userid}")
+    List<WeeklinBean> getWeeklin(@Param("userid") String userid);
 
 
 }

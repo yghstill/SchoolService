@@ -8,14 +8,24 @@ public class PictureBean {
     private String imgpath;
     private String imgdesc;
     private String imgtime;
+    private String imgid;
     private String url;
 
-    public PictureBean(String useid, String imgpath, String imgdesc, String imgtime, String url) {
+    public PictureBean(String useid, String imgpath, String imgdesc, String imgtime, String imgid, String url) {
         this.useid = useid;
         this.imgpath = imgpath;
         this.imgdesc = imgdesc;
         this.imgtime = imgtime;
+        this.imgid = imgid;
         this.url = url;
+    }
+
+    public String getImgid() {
+        return imgid;
+    }
+
+    public void setImgid(String imgid) {
+        this.imgid = imgid;
     }
 
     public String getUrl() {
