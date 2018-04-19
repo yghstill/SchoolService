@@ -1,5 +1,5 @@
-# SchoolServiceWQ
-Project for WanQing.          
+# SchoolService
+Project for SchoolApp.          
 掌上校园app服务端.  
 ## 框架
 Spring boot + Mybatis         
